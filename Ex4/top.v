@@ -18,15 +18,19 @@
 
 `timescale 1ns / 100ps
 
-module dice(clk,rst,button,throw)
+module dice(clk,rst,button,throw);
 
 	input clk, rst, button;
-	output [2:0]throw;
+	output reg [2:0] throw;
 
-	always @(posedge clk or posedge rst) begin
-		if (rst) throw <= 3'b0;
-		else 
-
-
+	always @(posedge clk) 
+	begin
+	if (rst)
+		throw <= 3'b001;
+	else if (button && throw != 3'b110)
+		throw <= throw + 1;
+	else if (button && throw == 3'b110)
+		throw <= 3'b001;
+	end
 
 endmodule 
