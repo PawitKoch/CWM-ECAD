@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 // Exercise #6 
-// Student Name:
-// Date: 
+// Student Name: Pawit Kochakarn
+// Date: 03/06/2020
 //
 //
 //  Description: In this exercise, you need to design a multiplexer between a dice and traffic 
