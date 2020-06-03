@@ -26,8 +26,8 @@ rst=1;
 #10
 rst=0;
 button=1;
+sel=1;
 #200
-button=0;
 sel=0;
 $display("output=%h",result);
 end
