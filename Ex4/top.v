@@ -25,7 +25,7 @@ module dice(clk,rst,button,throw);
 
 	always @(posedge clk) 
 	begin
-	if (rst)
+	if (rst || throw == 3'b111)
 		throw <= 3'b001;
 	else if (button && throw != 3'b110)
 		throw <= throw + 1;
