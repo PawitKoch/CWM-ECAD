@@ -27,7 +27,7 @@ end
 initial begin
 read=1;
 //#400
-//read=1;
+//read=0;
 end
 
 initial begin
