@@ -13,7 +13,7 @@ module top_tb();
 parameter CLK_PERIOD = 10;
 
 reg clk, rst, button, sel;
-wire result;
+wire [2:0]result;
 
 initial begin
 clk = 1'b0;
@@ -27,10 +27,12 @@ rst=1;
 rst=0;
 button=1;
 sel=1;
-#200
-sel=0;
+#100
+button=0;
 $display("output=%h",result);
 end
+
+top mytop(.clk(clk),.rst(rst),.button(button),.sel(sel),.result(result));
 
 endmodule
 

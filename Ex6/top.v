@@ -25,12 +25,13 @@ module top(
 	output [2:0]result
 );
 
-wire [2:0]throw, red, amber, green;
+wire [2:0]throw;
+wire [2:0]state;
 
 
 dice my_dice(.clk(clk), .rst(rst), .button(button), .throw(throw));
-traffic_lights trafic_lights(.clk(clk), .red(red), .amber(amber), .green(green));
-mux my_mux( .a(throw), .b({green,amber,red}), .sel(sel), .out(result));
+traffic_lights trafic_lights(.clk(clk), .red(state[0]), .amber(state[1]), .green(state[2]));
+mux my_mux( .a(throw), .b(state), .sel(sel), .out(result));
 
 
 endmodule
