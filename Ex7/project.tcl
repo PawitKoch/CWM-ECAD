@@ -41,4 +41,4 @@ set_property top_lib xil_defaultlib [get_filesets sim_1]
 update_compile_order -fileset sim_1
 
 launch_simulation
-run 800ns
+run 640ns
