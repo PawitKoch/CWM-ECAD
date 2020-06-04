@@ -26,16 +26,10 @@ forever
 end
 
 initial begin
-read=1;
-rst=0;
-//#400
-//rst=1;
-//read=0;
-end
-
-initial begin
 a = 0;
 b = 0;
+read=1;
+rst=0;
 forever begin
 	#CLK_PERIOD
 	$display("Result=%h",result);

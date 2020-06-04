@@ -55,7 +55,7 @@ module times(input clk, [2:0]a, [2:0]b, read, rst,
   	.s_axi_rresp(s_axi_rresp),      // output wire [1 : 0] s_axi_rresp
   	.s_axi_rvalid(s_axi_rvalid),    // output wire s_axi_rvalid
   	.s_axi_rready(read)    // input wire s_axi_rready
-);
+	);
 
 
 endmodule
