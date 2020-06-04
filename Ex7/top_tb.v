@@ -12,43 +12,37 @@ module top_tb();
 
 parameter CLK_PERIOD = 10;
 
-reg clk, err, [2:0]a, [2:0]b, read;
+reg clk;
+reg [2:0]a;
+reg [2:0]b;
+reg read;
 wire [5:0] result;
-
-initial begin
-read=1;
-#300
-read=0;
-
-end
 
 initial begin
 clk = 1'b0;
 forever 
 #(CLK_PERIOD/2) clk=~clk;
+end
 
+initial begin
+read=1;
+//#400
+//read=1;
 end
 
 initial begin
 a = 0;
 b = 0;
-err = 0;
-
 forever begin
 	#CLK_PERIOD
-	$display("Result=%h",result);
-	if(read) && a*b!=result)
-		begin
-		$display("Error, miscalc");
-		err = 1;
-		end
-	a = a+1; //go through whole ...7x...7 timestables
+	a = a+1; //cycle through a=0->7 x b=0->7
 	if (a==0)
 		b = b+1;
 	end
+	$display("Result=%h",result);
 end
 
-times bram( .clk(clk), .a(a), .b(b), .result(result)); //instance
+times my_times( .clk(clk), .a(a), .b(b), .read(read), .result(result)); //top instance
 
 
 endmodule
