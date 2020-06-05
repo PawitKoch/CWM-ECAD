@@ -18,7 +18,7 @@ module times(input clk, [2:0]a, [2:0]b, read, rst,
 	     output [5:0]result);
 
 	wire [31:0] ab;
-	assign ab[5:0] = {a,b}; //concat ab in order to look up addr in mem table
+	assign ab = {24'b0,a,b,2'b0}; //concat ab with zeros to fill up 32-bit addr look-up in mem 
 
 	
 	bram_axi your_instance_name(
