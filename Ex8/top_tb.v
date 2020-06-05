@@ -29,7 +29,7 @@ initial begin
 a = 0;
 b = 0;
 read=1;
-rst=0;
+rst=1;
 forever begin
 	#CLK_PERIOD
 	$display("Result=%h",result);
